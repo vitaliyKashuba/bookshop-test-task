@@ -39,4 +39,9 @@ public class AuthController
 
         return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getAuthorities()));
     }
+
+    @GetMapping("/test")
+    public String test() {
+        return "hello unauthorized!";
+    }
 }

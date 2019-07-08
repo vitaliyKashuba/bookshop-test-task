@@ -15,6 +15,7 @@ public class RESTController
     @RequestMapping("/")
     public ResponseEntity hello()
     {
+        System.out.println("hello!");
         return new ResponseEntity<>("hello world", HttpStatus.OK);
     }
 

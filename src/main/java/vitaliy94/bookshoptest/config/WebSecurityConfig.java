@@ -27,6 +27,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
     private JwtAuthEntryPoint unauthorizedHandler;
 
     @Bean
+    public AuthenticationManager customAuthenticationManager() throws Exception {
+        return authenticationManager();
+    }
+
+    @Bean
+    PasswordEncoder getEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
     public JwtAuthTokenFilter authenticationJwtTokenFilter() {
         return new JwtAuthTokenFilter();
     }
@@ -43,4 +53,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
+
 }

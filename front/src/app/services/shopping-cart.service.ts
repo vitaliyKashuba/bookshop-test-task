@@ -7,17 +7,24 @@ import {log} from 'util';
 })
 export class ShoppingCartService {
 
-  // cart: Book[];
-  // cart: { [book: Book]: number; } = { };
-  cart = new Map<Book, number>();
+  cart: Book[] = [];
+  // cart = new Map<Book, number>();
 
   constructor() { }
 
+  // public addBook(book: Book) {
+  //   this.cart.set(book, 2);
+  //   // this.cart.forEach((value, key) => {
+  //   //   log('key ' + key);
+  //   //   log('value ' + value);
+  //   // });
+  // }
+
   public addBook(book: Book) {
-    this.cart.set(book, 2);
-    // this.cart.forEach((value, key) => {
-    //   log('key ' + key);
-    //   log('value ' + value);
-    // });
+    this.cart.push(book);
+  }
+
+  public getBooks() {
+    return this.cart;
   }
 }

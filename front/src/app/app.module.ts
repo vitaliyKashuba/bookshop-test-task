@@ -17,6 +17,12 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BookPopupComponent } from './components/book-popup/book-popup.component';
+import {MatListModule} from '@angular/material/list';
+import {MatSortModule} from '@angular/material/sort';
+import { BookEditComponent } from './components/book-edit/book-edit.component';
+import { ConfirmationPopupComponent } from './components/confirmation-popup/confirmation-popup.component';
 
 
 @NgModule({
@@ -24,7 +30,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     AppComponent,
     LoginComponent,
     BookTableComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    BookPopupComponent,
+    BookEditComponent,
+    ConfirmationPopupComponent
   ],
   imports: [
     HttpClientModule,
@@ -37,9 +46,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule,
+    MatListModule,
+    MatSortModule
   ],
   providers: [httpInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    BookPopupComponent,
+    BookEditComponent,
+    ConfirmationPopupComponent
+  ]
 })
 export class AppModule { }

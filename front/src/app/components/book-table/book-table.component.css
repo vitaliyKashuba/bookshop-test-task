@@ -10,3 +10,11 @@ table {
 td, th {
   width: 25%;
 }
+
+tr:hover{
+  background-color: azure;
+}
+
+.red-border{
+  outline: 1px solid red;
+}

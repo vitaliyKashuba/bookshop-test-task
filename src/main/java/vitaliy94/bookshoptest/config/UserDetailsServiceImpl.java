@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import vitaliy94.bookshoptest.model.User;
-import vitaliy94.bookshoptest.repositary.UserRepository;
+import vitaliy94.bookshoptest.repository.UserRepository;
 //import org.springframework.transaction.annotation.Transactional;
 
 @Service

@@ -1,4 +1,4 @@
-package vitaliy94.bookshoptest.repositary;
+package vitaliy94.bookshoptest.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,7 +18,8 @@ public class UserRepository
     private List<User> users;
 
     @PostConstruct
-    public void init() {
+    public void init()
+    {
         users = new ArrayList<>();
 
         User user = new User("name", "username", "email@mail.com", encoder.encode("password"));

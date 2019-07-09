@@ -12,12 +12,19 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
 
 import { httpInterceptorProviders } from './services/auth-interceptor';
+import { BookTableComponent } from './components/book-table/book-table.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    BookTableComponent,
+    ToolbarComponent
   ],
   imports: [
     HttpClientModule,
@@ -27,7 +34,10 @@ import { httpInterceptorProviders } from './services/auth-interceptor';
     MatIconModule,
     MatInputModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatToolbarModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

@@ -1,27 +1,43 @@
 package vitaliy94.bookshoptest.rest;
 
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import vitaliy94.bookshoptest.model.Book;
+import vitaliy94.bookshoptest.repository.BookRepository;
 
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
+@RequestMapping("/api/book")
 public class RESTController
 {
-    @RequestMapping("/")
-    public ResponseEntity hello()
+    @Autowired
+    BookRepository bookRepository;
+
+    @GetMapping("/")
+    public ResponseEntity getBooks()
     {
-        System.out.println("hello!");
-        return new ResponseEntity<>("hello world", HttpStatus.OK);
+        return ResponseEntity.ok(bookRepository.getBooks());
     }
 
-    @GetMapping("/api/test/admin")
-    @PreAuthorize("hasRole('ADMIN')")
-    public String adminAccess() {
-        return ">>> Admin Contents";
+//    @GetMapping("/{id}")
+//    public ResponseEntity getBooks1(@PathVariable int id)
+//    {
+//        System.out.println(id);
+//        return ResponseEntity.ok(bookRepository.getBooks());
+//    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity addBook(@PathVariable int id, @RequestBody Book book)
+    {
+        return ResponseEntity.ok("ok");
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteBook(@PathVariable int id)
+    {
+        System.out.println("delete " + id);
+        bookRepository.deleteBook(id);
+        return ResponseEntity.ok().build();
     }
 }

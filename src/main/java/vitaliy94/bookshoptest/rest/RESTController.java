@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vitaliy94.bookshoptest.model.Book;
 import vitaliy94.bookshoptest.repository.BookRepository;
+import vitaliy94.bookshoptest.util.AppUtil;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -20,17 +21,11 @@ public class RESTController
         return ResponseEntity.ok(bookRepository.getBooks());
     }
 
-//    @GetMapping("/{id}")
-//    public ResponseEntity getBooks1(@PathVariable int id)
-//    {
-//        System.out.println(id);
-//        return ResponseEntity.ok(bookRepository.getBooks());
-//    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity addBook(@PathVariable int id, @RequestBody Book book)
+    @PutMapping("/")
+    public ResponseEntity addBook(@RequestBody Book book)
     {
-        return ResponseEntity.ok("ok");
+        bookRepository.addBook(book);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
@@ -38,6 +33,20 @@ public class RESTController
     {
         System.out.println("delete " + id);
         bookRepository.deleteBook(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/{id}")
+    public ResponseEntity editBook(@PathVariable int id, @RequestBody Book book)
+    {
+        if(!AppUtil.isValide(book))
+        {
+            return ResponseEntity.badRequest().body("Unvalid");
+        }
+        else {
+            bookRepository.editBook(book);
+        }
+
         return ResponseEntity.ok().build();
     }
 }

@@ -1,0 +1,23 @@
+<table>
+  <tr *ngFor="let book of cart">
+    <td>{{book.name}}</td>
+    <td>{{book.price}}</td>
+    <td>
+      <button mat-icon-button color="primary" (click)="decreaseCount(book.id)">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      {{quantity.get(book.id)}}
+      <button mat-icon-button color="primary" (click)="increaseCount(book.id)">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </td>
+    <td>
+      <button mat-icon-button color="warn" (click)="removeFromCart(book)">
+        <mat-icon>remove_shopping_cart</mat-icon>
+      </button>
+    </td>
+  </tr>
+</table>
+<div>
+  Total: {{sum.toFixed(2)}}
+</div>

@@ -13,7 +13,7 @@ export class ShoppingCartService {
   constructor() { }
 
   // public addBook(book: Book) {
-  //   this.cart.set(book, 2);
+  //   this.cart.set(book, 1);
   //   // this.cart.forEach((value, key) => {
   //   //   log('key ' + key);
   //   //   log('value ' + value);
@@ -26,5 +26,10 @@ export class ShoppingCartService {
 
   public getBooks() {
     return this.cart;
+  }
+
+  public removeBook(book: Book) {
+    const index = this.cart.indexOf(book);
+    this.cart.splice(index, 1);
   }
 }

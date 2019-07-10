@@ -18,3 +18,8 @@ tr:hover{
 .red-border{
   outline: 1px solid red;
 }
+
+#button-new{
+  width: 10%;
+  margin-left: 90%;
+}

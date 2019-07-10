@@ -23,6 +23,10 @@ import {MatListModule} from '@angular/material/list';
 import {MatSortModule} from '@angular/material/sort';
 import { BookEditComponent } from './components/book-edit/book-edit.component';
 import { ConfirmationPopupComponent } from './components/confirmation-popup/confirmation-popup.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CharacterInputDirective } from './services/character-input.directive';
+import { BookCreateComponent } from './components/book-create/book-create.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 
 @NgModule({
@@ -33,7 +37,10 @@ import { ConfirmationPopupComponent } from './components/confirmation-popup/conf
     ToolbarComponent,
     BookPopupComponent,
     BookEditComponent,
-    ConfirmationPopupComponent
+    ConfirmationPopupComponent,
+    CharacterInputDirective,
+    BookCreateComponent,
+    ShoppingCartComponent
   ],
   imports: [
     HttpClientModule,
@@ -49,14 +56,17 @@ import { ConfirmationPopupComponent } from './components/confirmation-popup/conf
     MatToolbarModule,
     MatDialogModule,
     MatListModule,
-    MatSortModule
+    MatSortModule,
+    MatSnackBarModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
   entryComponents: [
     BookPopupComponent,
     BookEditComponent,
-    ConfirmationPopupComponent
+    ConfirmationPopupComponent,
+    BookCreateComponent,
+    ShoppingCartComponent
   ]
 })
 export class AppModule { }

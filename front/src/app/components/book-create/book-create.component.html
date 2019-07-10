@@ -1,0 +1,19 @@
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="name" [(ngModel)]="name">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="year" [(ngModel)]="year">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <textarea  matInput placeholder="description" [(ngModel)]="description"></textarea>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="price" [(ngModel)]="price">
+  </mat-form-field>
+</div>
+
+<button mat-flat-button color="primary" (click)="save()">Save</button>

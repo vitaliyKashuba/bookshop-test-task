@@ -4,4 +4,8 @@ export class Book {
               public year: number,
               public description: string,
               public price: number) {}
+
+  // public clone() {
+  //   return new Book(this.id, this.name, this.year, this.description, this.price);
+  // }
 }

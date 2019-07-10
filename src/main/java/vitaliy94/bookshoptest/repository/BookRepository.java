@@ -36,8 +36,8 @@ public class BookRepository
 
     public void deleteBook(int id) {
         Book b = findById(id);
-        log.info("deleting " + b);
         books.remove(b);
+        log.info("deleting " + b);
     }
 
     private Book findById(int id) {
@@ -47,9 +47,17 @@ public class BookRepository
                 .orElseThrow(() -> new IllegalArgumentException("no such element"));
     }
 
-    public void editBook(int id) {
-        Book b = findById(id);
+    /** типа update запрос к базе */
+    public void editBook(Book book) {
+        log.info("editing " + book);
+        Book b = findById(book.getId());
+        books.remove(b);
+        books.add(book);
+    }
 
-
+    public void addBook(Book book) {
+        log.info("add book " + book);
+        book.setId(bookId++);
+        books.add(book);
     }
 }

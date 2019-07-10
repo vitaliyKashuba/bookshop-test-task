@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {log} from 'util';
+import {getToken} from 'codelyzer/angular/styles/cssLexer';
 
 const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUsername';
@@ -54,11 +55,14 @@ export class TokenStorageService {
   public isAdmin() {
     let contains = false;
     this.getAuthorities().forEach((role) => {
-      log('role ' + role);
       if (role === 'ROLE_ADMIN') {
         contains = true;
       }
     });
     return contains;
+  }
+
+  isLoggedIn() {
+    return this.getToken(); // TODO return flase if has token has expired
   }
 }

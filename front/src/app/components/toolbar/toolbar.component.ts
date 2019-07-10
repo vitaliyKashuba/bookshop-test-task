@@ -18,7 +18,6 @@ export class ToolbarComponent implements OnInit {
   constructor(public dialog: MatDialog, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
-    // log('admin' + this.tokenStorage.isAdmin());
   }
 
   openCart() {

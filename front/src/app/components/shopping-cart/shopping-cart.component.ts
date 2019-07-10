@@ -12,7 +12,7 @@ import {subscribeOn} from 'rxjs/operators';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  cart: Book[];
+  cart: Set<Book> = new Set();
   quantity: Map<number, number> = new Map<number, number>();
   sum: number;
 

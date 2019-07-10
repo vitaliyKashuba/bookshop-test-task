@@ -1,9 +1,10 @@
-package vitaliy94.bookshoptest.config;
+package vitaliy94.bookshoptest.config.jwt;
 
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
+import vitaliy94.bookshoptest.config.UserPrinciple;
 
 import java.util.Date;
 

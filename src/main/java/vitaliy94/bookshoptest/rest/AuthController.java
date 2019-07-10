@@ -7,13 +7,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import vitaliy94.bookshoptest.config.JwtProvider;
+import vitaliy94.bookshoptest.config.jwt.JwtProvider;
 import vitaliy94.bookshoptest.message.JwtResponse;
 import vitaliy94.bookshoptest.message.LoginForm;
-
-import javax.validation.Valid;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController

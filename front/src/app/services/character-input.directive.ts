@@ -14,6 +14,9 @@ export class CharacterInputDirective {
     // (elementRef.nativeElement as HTMLInputElement).value = '';
   }
 
+  /**
+   * dont let user to input digits or any symbols but letters
+   */
   @HostListener('input')
   onChange($event) {
     const input = this.elementRef.nativeElement.value;

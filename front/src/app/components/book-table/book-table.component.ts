@@ -40,8 +40,10 @@ export class BookTableComponent implements OnInit {
 
   addToCart(book: Book) {
     this.cart.addBook(book);
+    this.snackBar.open('added to cart');
   }
 
+  /** show detail book data */
   openPopup(book: Book): void {
     const dialogRef = this.dialog.open(BookPopupComponent, {
       width: '60%',
@@ -57,7 +59,6 @@ export class BookTableComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        log('success');
         this.deleteBookFromFront(book);
         this.books.push(result);
         this.reinitDataSource();
@@ -86,11 +87,13 @@ export class BookTableComponent implements OnInit {
     });
   }
 
+  /** remove book from list in component, need to synchronize backend and front data */
   deleteBookFromFront(book: Book) {
     const index = this.books.indexOf(book);
     this.books.splice(index, 1);
   }
 
+  /** needs to reinit mat table after every datasource change */
   reinitDataSource() {
     this.initDataSource();
   }

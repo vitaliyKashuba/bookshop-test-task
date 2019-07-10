@@ -7,21 +7,13 @@ import {log} from 'util';
 })
 export class ShoppingCartService {
 
-  cart: Book[] = [];
+  cart: Set<Book> = new Set();
   // cart = new Map<Book, number>();
 
   constructor() { }
 
-  // public addBook(book: Book) {
-  //   this.cart.set(book, 1);
-  //   // this.cart.forEach((value, key) => {
-  //   //   log('key ' + key);
-  //   //   log('value ' + value);
-  //   // });
-  // }
-
   public addBook(book: Book) {
-    this.cart.push(book);
+    this.cart.add(book);
   }
 
   public getBooks() {
@@ -29,7 +21,6 @@ export class ShoppingCartService {
   }
 
   public removeBook(book: Book) {
-    const index = this.cart.indexOf(book);
-    this.cart.splice(index, 1);
+    this.cart.delete(book);
   }
 }

@@ -8,6 +8,9 @@ import vitaliy94.bookshoptest.util.AppUtil;
 import javax.annotation.PostConstruct;
 import java.util.*;
 
+/**
+ * чтобы тестовое можно было запустить без насройки базы, в репозитории имитация бд
+ */
 @Slf4j
 @Service
 public class BookRepository
@@ -20,7 +23,7 @@ public class BookRepository
     {
         books = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 100; i++)
         {
             books.add(new Book(bookId++,
                     AppUtil.faker.book().title(),

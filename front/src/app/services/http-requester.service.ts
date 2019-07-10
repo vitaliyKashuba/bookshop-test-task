@@ -11,10 +11,6 @@ export class HttpRequesterService {
 
   apiEndpoint = 'http://localhost:8080/api/book/';
 
-  getData() {
-    return this.http.get('http://127.0.0.1:8080/');
-  }
-
   getBooks() {
     return this.http.get(this.apiEndpoint);
   }

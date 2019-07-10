@@ -24,7 +24,13 @@ public class RESTController
     @PutMapping("/")
     public ResponseEntity addBook(@RequestBody Book book)
     {
-        bookRepository.addBook(book);
+        if(!AppUtil.isValide(book))
+        {
+            return ResponseEntity.badRequest().body("Unvalid");
+        }
+        else {
+            bookRepository.addBook(book);
+        }
         return ResponseEntity.ok().build();
     }
 

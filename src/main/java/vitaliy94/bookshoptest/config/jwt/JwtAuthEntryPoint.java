@@ -1,4 +1,4 @@
-package vitaliy94.bookshoptest.config;
+package vitaliy94.bookshoptest.config.jwt;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

@@ -2,7 +2,7 @@
   <input appCharacterInput matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
 
-<button mat-flat-button color="primary" id="button-new" (click)="onAddClick()">Ann new book</button>
+<button mat-flat-button color="primary" id="button-new" (click)="onAddClick()" *ngIf="tokenStorage.isAdmin()">Ann new book</button>
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
@@ -30,11 +30,11 @@
             <mat-icon>shopping_cart</mat-icon>
           </button>
 
-          <button mat-icon-button color="primary" (click)="editBook(row)">
+          <button mat-icon-button color="primary" (click)="editBook(row)" *ngIf="tokenStorage.isAdmin()">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button mat-icon-button color="primary" (click)="deleteBook(row)">
+          <button mat-icon-button color="primary" (click)="deleteBook(row)" *ngIf="tokenStorage.isAdmin()">
             <mat-icon>delete</mat-icon>
           </button>
         </div>

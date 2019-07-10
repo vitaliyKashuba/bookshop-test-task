@@ -66,7 +66,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     BookEditComponent,
     ConfirmationPopupComponent,
     BookCreateComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    LoginComponent
   ]
 })
 export class AppModule { }

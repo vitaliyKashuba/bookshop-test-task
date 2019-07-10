@@ -4,6 +4,7 @@ import {AuthService} from '../../services/auth.service';
 import {LoginForm} from '../serializable/auth-form';
 import {TokenStorageService} from '../../services/token-storage.service';
 import {HttpRequesterService} from '../../services/http-requester.service';
+import {MatDialogRef, MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,10 @@ export class LoginComponent implements OnInit {
   name = '';
   password = '';
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private requester: HttpRequesterService) { }
+  constructor(private authService: AuthService,
+              private tokenStorage: TokenStorageService,
+              public dialogRef: MatDialogRef<LoginComponent>,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -33,29 +37,10 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveUsername(data.username);
         this.tokenStorage.saveAuthorities(data.authorities);
 
-        // this.isLoginFailed = false;
-        // this.isLoggedIn = true;
-        // this.roles = this.tokenStorage.getAuthorities();
-        // this.reloadPage();
+        this.dialogRef.close(true);
       },
       error => {
-        log('error');
-        console.log(error);
-        // this.errorMessage = error.error.message;
-        // this.isLoginFailed = true;
-      }
-    );
-  }
-
-  request() {
-    this.requester.getData().subscribe(
-      data => {
-        log('success');
-        log(data);
-      },
-      error => {
-        log('error');
-        log(error);
+        this.snackBar.open('error while try ti login');
       }
     );
   }

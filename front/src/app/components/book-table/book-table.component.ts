@@ -8,6 +8,7 @@ import {BookPopupComponent} from '../book-popup/book-popup.component';
 import {BookEditComponent} from '../book-edit/book-edit.component';
 import {ConfirmationPopupComponent} from '../confirmation-popup/confirmation-popup.component';
 import {BookCreateComponent} from '../book-create/book-create.component';
+import {TokenStorageService} from '../../services/token-storage.service';
 
 @Component({
   selector: 'app-book-table',
@@ -26,7 +27,8 @@ export class BookTableComponent implements OnInit {
   constructor(private requester: HttpRequesterService,
               private cart: ShoppingCartService,
               public dialog: MatDialog,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar,
+              private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
     this.requester.getBooks().subscribe(data => {

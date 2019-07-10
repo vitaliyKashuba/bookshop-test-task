@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {log} from 'util';
 
 const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUsername';
@@ -48,5 +49,16 @@ export class TokenStorageService {
     }
 
     return this.roles;
+  }
+
+  public isAdmin() {
+    let contains = false;
+    this.getAuthorities().forEach((role) => {
+      log('role ' + role);
+      if (role === 'ROLE_ADMIN') {
+        contains = true;
+      }
+    });
+    return contains;
   }
 }
